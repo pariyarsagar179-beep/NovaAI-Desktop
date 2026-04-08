@@ -1,0 +1,62 @@
+{
+  "name": "NovaAI-Desktop",
+  "version": "1.0.0",
+  "description": "Nova AI Desktop Application with Acrylic UI, Auto-Updates, and Backend Integration",
+  "main": "electron/main.js",
+  "author": "nova-dev",
+  "license": "MIT",
+
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --win"
+  },
+
+  "dependencies": {
+    "electron-updater": "^6.1.1"
+  },
+
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.6.0"
+  },
+
+  "build": {
+    "appId": "com.nova.ai.desktop",
+    "productName": "Nova AI",
+    "directories": {
+      "buildResources": "assets/icon"
+    },
+    "files": [
+      "electron/**/*",
+      "frontend/**/*",
+      "backend/**/*",
+      "assets/icon/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon/nova-icon-1024.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "nova-dev",
+        "repo": "NovaAI-Desktop"
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Trading AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="app">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="logo">Nova Trading AI</div>
+        <div class="welcome" id="welcomeName">Welcome</div>
+        <div class="version">v1.0.0</div>
+    </div>
+
+    <!-- MAIN LAYOUT -->
+    <div class="layout">
+
+        <!-- LEFT WORKSPACE PANEL -->
+        <div class="panel">
+
+            <!-- PREDICT MARKET MOVE -->
+            <h2>Predict Market Move</h2>
+
+            <div class="block">
+                <label class="label">Chart images</label>
+                <input type="file" id="chartImages" accept="image/*" multiple>
+            </div>
+
+            <div class="block">
+                <label class="label">Ask Nova about these charts</label>
+                <textarea id="chartQuestion"
+                          placeholder="Describe what you want Nova to analyze..."
+                          required></textarea>
+            </div>
+
+            <div class="row">
+                <button id="predictBtn">Predict Market Move</button>
+                <button id="askChartBtn">Ask Nova</button>
+            </div>
+
+            <!-- TRAIN NOVA WITH PDFs -->
+            <h2>Train Nova with PDFs</h2>
+
+            <div class="block">
+                <label class="label">Upload PDF</label>
+                <input type="file" id="pdfFile" accept="application/pdf">
+            </div>
+
+            <button id="uploadPdfBtn">Upload PDF</button>
+
+            <div class="row">
+                <span class="section-title">Knowledge files</span>
+                <button class="small-btn" id="refreshBtn">Refresh</button>
+            </div>
+
+            <!-- NEW CLEAN KNOWLEDGE FILES BOX -->
+            <div id="knowledgeContainer">
+                <ul id="knowledgeList" class="knowledge-list"></ul>
+            </div>
+
+            <!-- ASK USING PDFs -->
+            <h2>Ask using your PDFs</h2>
+
+            <div class="block">
+                <textarea id="pdfQuestion"
+                          placeholder="Ask Nova anything using your uploaded knowledge..."
+                          required></textarea>
+            </div>
+
+            <button id="askKnowledgeBtn">Ask Nova (PDFs)</button>
+
+        </div>
+
+        <!-- RIGHT NOVA CHAT PANEL -->
+        <div class="panel">
+            <h2>Nova</h2>
+
+            <div class="chat-window">
+                <div class="chat-messages" id="chatMessages"></div>
+            </div>
+
+            <div class="bottom-bar">
+                <button id="clearChatBtn">Clear Chat</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

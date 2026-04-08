@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+openai
+chromadb
+PyPDF2
+python-multipart
